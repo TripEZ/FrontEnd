@@ -1,0 +1,199 @@
+.container {
+    width: 100%;
+}
+
+.section-container {
+    background-color: var(--GreenMono);
+    margin-top: 100px;
+    padding: 30px 50px;
+    border-radius: 20px;
+    width: 60%;
+    margin-inline: auto;
+    color: white;
+}
+
+.mr-30 {
+    margin-top: 30px;
+}
+
+ul {
+    list-style: none;
+}
+
+button {
+    margin: 20px 10px 0px auto;
+    color: white;
+    background-color: var(--button);
+    border: 2px solid white;
+}
+
+button:hover {
+    background-color: white;
+    color: #2E5E4D;
+    border: 2px solid #2E5E4D;
+}
+
+label {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.width-half {
+    width: 50%;
+}
+
+.sub {
+    font-size: 13px;
+}
+
+.btn-create-trip {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px;
+    width: 60%;
+    display: block;
+    margin: 20px auto;
+    margin-bottom: 50px;
+}
+
+.attendee-form {
+    margin-top: 10px;
+}
+
+.attendee {
+    margin-top: 5px;
+}
+
+.attendee-info {
+    margin-top: 15px;
+}
+
+.btn-remove {
+    float: right;
+    margin-top: -5%;
+    background-color: white;
+    color: var(--delete);
+    border: 2px solid white;
+}
+
+.btn-remove:hover {
+    background-color: var(--delete);
+    color: white;
+    border: 2px solid red;
+}
+
+.rmv-attendee {
+    width: 25px;
+    height: 25px;
+}
+
+.day-indiv {
+    padding: 20px 30px 20px 0;
+    background-color: var(--LogoColor);
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.destaq {
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.location-tags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tag-box {
+    margin: 5px;
+    background-color: #d1f4ff;
+    padding-inline: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: row;
+    color: rgb(36, 36, 36);
+}
+
+.rmv-loc {
+    margin-left: 10px;
+}
+
+.rmv-loc:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.in-row {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    border-radius: 10px;
+    padding: 5px 5px;
+}
+
+.row-i {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    background-color: var(--LogoColor);
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--button);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+    background-color: CanvasText;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.rmv-task {
+    width: 25px;
+    height: 25px;
+}
+
+.btn-rmv-task {
+    float: right;
+    margin-top: auto;
+    margin-bottom: auto;
+    color: white;
+    background-color: #47BC96;
+    margin-left: 15px;
+    border: none;
+}
+
+.btn-rmv-task:hover {
+    color: red;
+    background-color: #47BC96;
+    border: none;
+}
+
+.new-day {
+    margin-top: 20px;
+}

@@ -1,0 +1,98 @@
+
+.create-section {
+  margin-top:100px;
+  margin-left:100px;
+}
+
+.btn-create{
+  border : 2px solid var(--GreenMono);
+  font-size: 1.3rem;;
+  font-weight: 600;
+  text-align: center;
+  padding-left:20px;
+  border-radius: 10px;
+  height:50px;
+  color: var(--bar)
+}
+
+.btn-create:hover{
+  background-color: var(--GreenMono) ;
+  color:white;
+  transition: all 0.3s ease;
+  padding-left:25px;
+  text-align: end;
+}
+
+.appear{
+  opacity:0;
+  visibility: hidden;
+}
+
+.btn-create:hover > .appear { opacity:1 ; visibility:unset; }
+
+
+.trip-list{
+  margin-top:40px;
+  width:80%;
+  margin-inline:auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.arrangement{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+
+}
+
+.trip-card{
+  background-color:#110e0e;
+  color:white;
+  padding:10px;
+  width: 90%;
+  height:90px;
+  margin-top:10px;
+  border-radius: 10px 0px 0px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.days{
+  margin-right:10px;
+  margin-top:auto;
+  margin-bottom:auto;
+}
+
+.deleteBtn{
+  margin-top:auto;
+  margin-bottom:auto;
+}
+
+
+.btnDelete{
+  margin-top: 10px;
+  height: 90px;
+  width:50px;
+  padding-inline: 5px;
+  border-radius: 0px 10px 10px 0px;
+  background-color: var(--delete);
+  border:none;
+  transition: 0.1s ease-in-out;
+}
+
+.btnDelete:hover{
+  width:70px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .create-section {
+    margin-top:50px;
+    margin-left:40px;
+  }
+}
+
+

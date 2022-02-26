@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@200;400&display=swap');
+
+:root{
+
+
+
+  --LogoColor : #4ecca2a9;
+  --GreenMono : #309676ee;
+  --content-green : #bddbd1;
+  --delete : #ff4d4d ;
+  --button : #2E5E4D ;
+  --bar : #292929;
+
+}
+
+body, html {
+  font-family: 'Poppins', sans-serif;
+  background-image: linear-gradient(to bottom, #e9faff, #e0f7ff, #d1f4ff, #c3f1ff, #a2e9ff);
+  background-repeat: no-repeat;
+  height: fit-content;
+  background-color: #a2e9ff;
+
+}
+/*#bddbd1, #9ccaba, #7bb9a3, #58a78d, #309676*/ 
+
+@media screen and (max-height: 1080px) { /* Specific to this particular image */
+  body, html {
+    height: 100%;
+  }
+}
+
+

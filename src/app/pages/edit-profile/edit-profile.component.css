@@ -1,0 +1,81 @@
+
+.card{
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 200px;
+    padding: 20px;
+    background-color: var(--GreenMono);
+
+    border-radius: 10px;
+}
+
+h2{
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+
+.savebtn{
+    width: 100px;
+    float: right;
+    margin-left: auto;
+
+    border:2px solid white; 
+    color: var(--GreenMono);
+    background-color: white;
+
+    font-weight: 500;
+
+    transition: all 0.25s ease-in-out;
+}
+
+.savebtn:hover{
+    background-color: var(--GreenMono);
+    color: white;
+}
+
+.goBack{
+    width: 100px;
+    float: left;
+    margin-right: auto;
+
+    border:2px solid white; 
+    color: var(--GreenMono);
+    background-color: white;
+
+    font-weight: 500;
+
+    transition: all 0.25s ease-in-out;
+}
+
+.goBack:hover{
+    background-color: var(--GreenMono);
+    color: white;
+}
+
+
+input{
+
+    border: var(--LogoColor) 2px solid ;
+    border-radius: 5px 0px 0px 5px;
+    color: var(--GreenMono);
+    font-size: auto;
+    height:auto;
+    width: 250px;
+    background-color: white;
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+input:focus{
+    outline: none;
+}
+
+input:read-only{
+    background-color: rgb(208, 250, 221);
+}
+
+.red{
+    color: red;
+}

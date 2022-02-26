@@ -1,0 +1,252 @@
+<app-main-nav></app-main-nav>
+
+<div class="section-container" *ngIf="form1 == true">
+  <div>
+    <div class="form-group">
+      <label for="tripName">Trip Name</label>
+      <input
+        type="text"
+        name="tripName"
+        [(ngModel)]="tripName"
+        class="form-control"
+      />
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="tripLocation">Trip Location : Enter A Country Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="tripLocation"
+        [(ngModel)]="tripLocation"
+      />
+      <p class="sub">This location will help you later with suggestions.</p>
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="startDate">Start Date (Inclusive) </label>
+      <input
+        type="date"
+        class="form-control width-half"
+        name="startDate"
+        [(ngModel)]="startDate"
+      />
+    </div>
+    <br />
+    <div class="form-group">
+      <label for="endDate">End Date (Inclusive)</label>
+      <input
+        type="date"
+        class="form-control width-half"
+        name="endDate"
+        [(ngModel)]="endDate"
+      />
+    </div>
+    <br />
+    <p class="text-danger" *ngIf="this.errForm1 != ''">{{ errForm1 }}</p>
+    <button (click)="nextForm()" class="btn btn-primary">Next</button>
+  </div>
+</div>
+
+<div class="container" *ngIf="form2 == true">
+  <div class="section-container">
+    <h4>Attendees</h4>
+    <hr>
+    <div>
+      <div class="attendee-info" *ngFor="let att of allAtendees;let i = index">
+        Name: {{att.name}}<br>
+        Email: {{att.email}}<br>
+        Phone: {{att.phone}}
+        <button class="btn-remove" (click)="removeAtt(i)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x rmv-attendee" viewBox="0 0 16 16">
+            <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+            <path fill-rule="evenodd" d="M12.146 5.146a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+
+    <div class="attendee-form" *ngIf="addAtendeesToggle==true">
+      <div class="form-group">
+        <label class="attendee">Name : </label>
+        <input type="text" class="form-control" [(ngModel)]="atendeeName">
+      </div>
+      <div class="form-group">
+        <label class="attendee">Email : </label>
+        <input type="text" class="form-control" [(ngModel)]="atendeeEmail">
+      </div>
+      <div class="form-group">
+        <label class="attendee">Phone : </label>
+        <input type="text" class="form-control" [(ngModel)]="atendeePhone">
+      </div>
+
+      <div>
+        <button (click)="toggleAddAtendees()">Discard</button>
+        <button (click)="saveAtendee()">Add</button>
+      </div>
+    </div>
+    <button (click)="toggleAddAtendees()">Add attendee</button>
+  </div>
+
+
+  <div class="section-container mr-30">
+  <h3>Plan Your Trip</h3>
+  <div *ngFor="let n of daysCountArray">
+    <div class="day-indiv">
+      <ul>
+        <li>
+          <div class="form-group">
+            <label class="destaq" for="Date">Day {{ n + 1 }}</label><br>
+            <label for="Date">Date: </label>
+            <input
+              type="date"
+              class="form-control width-half"
+              name="dates{{ n }}"
+              [(ngModel)]="dates[n]"
+            />
+          </div>
+        </li>
+        <br />
+        <li>
+          <div class="form-group">
+            <label for="Date">Notes</label>
+            <textarea
+              class="form-control"
+              name="notes{{ n }}"
+              [(ngModel)]="notes[n]"
+              rows="3"
+              cols="2"
+              style="resize: none;"
+            ></textarea>
+          </div>
+        </li>
+        <br />
+
+        <li>
+          <div class="form-group">
+            <label for="Date">Add Locations: </label>
+            <input
+              type="text"
+              class="form-control"
+              name="addLocation{{ n }}"
+              [(ngModel)]="addLocation[n]"
+              ngx-google-places-autocomplete
+              [options]="options"
+              #placesRef="ngx-places"
+              (onAddressChange)="handleAddressChange($event, n)"
+            />
+            <button (click)="addIntoLocations(n)">Add</button>
+          </div>
+          <div class="location-tags">
+            <div *ngFor="let loc of allLocations[n]; let locationIndex = index">
+              <div class="tag-box">
+                <div>
+                  {{ loc }}
+                  <app-weather-widget
+                    location="{{ loc }}"
+                    date="{{ dates[n] }}"
+                  ></app-weather-widget>
+                </div>
+                <div>
+                  <svg
+                    (click)="removeLocation(locationIndex, n)"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="red"
+                    class="bi bi-x-circle rmv-loc"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"
+                    />
+                    <path
+                      d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <br />
+        <li>
+          <label class="destaq" for="toDo">To Dos</label>
+          <div class="todos">
+            <div *ngFor="let t of allToDo[n] ; let toDoIndex = index" >
+              <div class="in-row">
+                <div class="row-i">Task:</div>
+                <div class="row-i">
+                  <input type="text"class="form-control"
+                  (change)="toDoEdited(n,toDoIndex)"
+                  name="Task{{ n }}{{toDoIndex}}" [(ngModel)]="Task[n][toDoIndex]"/>
+                </div>
+                <div class="row-i">
+                  <input type="checkbox"name="Status{{ n }}{{toDoIndex}}" [(ngModel)]="Status[n][toDoIndex]"
+                    (change)="toDoEdited(n,toDoIndex)"
+                  />
+                </div>
+                <div>
+                  <button class="btn-rmv-task" (click)="removeTodo(n,toDoIndex)"> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash rmv-task" viewBox="0 0 16 16">
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg> 
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <button (click)="toggleToDo(n)" class="btn-add">Add to do</button>
+
+          <div class="addToDo" *ngIf="toDotoggle[n] == true">
+            <div class="in-row">
+              <div class="row-i">Task:</div>
+              <div class="row-i">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="addTask{{ n }}"
+                  [(ngModel)]="addTask[n]"
+
+                />
+              </div>
+              <div class="row-i">
+                <input
+                  type="checkbox"
+                  name="addStatus{{ n }}"
+                  [(ngModel)]="addStatus[n]"
+                />
+              </div>
+            </div>
+
+            <div class="btns">
+              <button (click)="discardToDo(n)" class="btn-danger">Discard</button>
+              <button (click)="saveToDo(n)" class="btn-success">Save</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="new-day" *ngIf="addDayToggle==true">
+    <div class="form-group">
+      <label>Date: </label>
+      <input type="date" [(ngModel)]="newDate" class="form-control">
+    </div>
+    <div>
+      <button (click)="toggleAddDay()">Discard</button>
+      <button  (click)="addDay()" >Add</button>
+    </div>
+  </div>
+  <button (click)="toggleAddDay()">Add Day</button>
+  </div>
+
+  <button (click)="createTrip()" class="btn-create-trip">Create Trip</button>
+</div>
+
+
+

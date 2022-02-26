@@ -1,0 +1,23 @@
+
+<app-main-nav></app-main-nav>
+
+<div class="container">
+    <div class="card">
+        <form [formGroup]="editForm">
+        <h2>*Name</h2>
+        <div>
+        <input type="text" formControlName="name" required>
+        <p *ngIf="editForm.get('name')!.touched && editForm.get('name')!.invalid " class="red">Please enter a name...</p>
+    </div>
+    <br *ngIf="editForm.get('name')!.valid ">
+        <h2>*Email</h2>
+        <input type="text" formControlName="email" readonly>  <br><br>
+        <h2>Phone</h2>
+        <input type="number"  formControlName="phone">  <br><br>
+
+        <button class="goBack" (click)="goBack()">Cancle</button>
+        <button class="savebtn" [disabled]="editForm.invalid" (click)="saveChanges()">Save</button>
+      </form>
+    </div>
+</div>
+

@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.header{
+  margin-top: 40px;
+  margin-inline: auto;
+  width:80%;
+  padding:20px;
+  border-radius: 10px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+
+  border:2px solid rgb(82, 76, 76);
+  background-color: var(--content-green);
+
+
+}
+
+
+.edit-trip{
+  font-weight: 600;
+  color :rgb(41, 38, 38);
+  margin-bottom: 5px;
+  border: 2px rgb(41, 38, 38) solid;
+}
+
+.edit-trip:hover{
+  background: rgb(41, 38, 38);
+  color: white;
+
+}
+
+ul{
+  list-style: none;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.atendees{
+  margin-top: 20px;
+  margin-inline: auto;
+  text-align: center;
+  width:80%;
+  padding:20px;
+  border-radius: 10px;
+  border:2px solid rgb(82, 76, 76);
+  background-color: var(--content-green);
+
+
+}
+
+.display-arr{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap:20px;
+
+
+}
+
+
+.icon-1{
+  height: 30px;
+  width: auto;
+}
+
+
+
+.ind-at{
+  background-color:white ;
+  padding:15px;
+  border-radius: 5px;
+  border:2px solid rgb(82, 76, 76);
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: start;
+  font-weight: 600;
+  max-width: 40%;
+}
+
+.days-section{
+  margin-top: 20px;
+  margin-inline: auto;
+  width:80%;
+  border:2px solid rgb(82, 76, 76);
+  background-color: var(--content-green);
+  padding:20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  height: max-content;
+
+
+}
+
+.day{
+  background-color:rgb(41, 38, 38);
+  color:white;
+  border-radius: 5px;
+  padding:30px;
+  padding-right:50px;
+  margin-bottom: 20px;
+  max-width: 45%;
+
+
+}
+
+.notepad{
+  font-family: 'Indie Flower', cursive;
+  letter-spacing: 0.001em;
+  font-size: 1.3em;
+  background-color: #ffff78;
+  color:black;
+  padding-inline:10px;
+  padding-top:20px;
+  padding-bottom:20px;
+  border-radius: 10px;
+
+}
+
+.locations{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.location-tags{
+  background-color: white;
+  color:black;
+  padding:5px;
+  border-radius: 5px;
+}
+
+
+
+.to-dos{
+  margin-top:20px;
+  background-color: white ;
+  color:black;
+  padding:5px;
+  border-radius: 5px;
+}
+
+
+.todo-listitem{
+  background: #1f1d1d;
+  color:white;
+  margin-bottom: 3px;
+  padding-inline:10px;
+  padding-top:2px;
+  padding-bottom:2px;
+  border-radius:5px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .display-arr{
+     justify-content: center;
+     width:100%;
+  }
+
+  .header{
+    width: 95%;
+
+  }
+
+  .days-section{
+    width: 95%;
+  }
+
+  .atendees{
+    width: 95%;
+  }
+
+  .day{
+    min-width: 100%;
+  }
+
+
+  .ind-at{
+    min-width: 95%;
+  }
+}
