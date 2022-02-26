@@ -3,7 +3,7 @@ import {APOLLO_OPTIONS} from 'apollo-angular';
 import {ApolloClientOptions, InMemoryCache} from '@apollo/client/core';
 import {HttpLink} from 'apollo-angular/http';
 
-const uri = 'https://tripezbackend.herokuapp.com/graphql'; // <-- add the URL of the GraphQL server here
+const uri = 'https://tripez-server.herokuapp.com/graphql'; // <-- add the URL of the GraphQL server here
 //const uri = 'http://localhost:3000/graphql';
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
