@@ -20,6 +20,7 @@ import { CreateTripComponent } from './pages/create-trip/create-trip.component';
 
 import { GooglePlaceModule } from "ngx-google-places-autocomplete";
 import { WeatherWidgetComponent } from './components/weather-widget/weather-widget.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,9 @@ import { WeatherWidgetComponent } from './components/weather-widget/weather-widg
     FormsModule,
     HttpClientModule,
     GooglePlaceModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDyeVGrTRpKscrLAEtA0MyD4bpjEPXxrSY'
+    })
   ],
   providers: [
     {
