@@ -134,8 +134,7 @@
               ngx-google-places-autocomplete
               [options]="options"
               #placesRef="ngx-places"
-              (onAddressChange)="handleAddressChange($event, n)"
-            />
+              (onAddressChange)="handleAddressChange($event, n)"/>
             <button (click)="addIntoLocations(n)">Add</button>
           </div>
           <div class="location-tags">
@@ -243,8 +242,21 @@
     </div>
   </div>
   <button (click)="toggleAddDay()">Add Day</button>
+
+  <div style="margin-top: 30px;">
+    <agm-map [latitude]="latitude" [longitude]="longitude" >
+      <div>
+        <agm-marker 
+        *ngFor="let loc of LocationLatLng"
+        [latitude]="loc.lat" 
+        [longitude]="loc.lng"
+        ></agm-marker> 
+      </div>
+           
+    </agm-map>
   </div>
 
+  </div>
   <button (click)="createTrip()" class="btn-create-trip">Create Trip</button>
 </div>
 

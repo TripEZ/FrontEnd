@@ -65,8 +65,13 @@ mutation createTrip($tripInput:tripInputData!)
   styleUrls: ['./create-trip.component.css']
 })
 export class CreateTripComponent implements OnInit {
-
-
+  zoom: number = 12;
+  //geocoder = new google.maps.Geocoder();
+  latitude = 0;
+  longitude = 0;
+  LocationLatLng= [{lat:0, lng:0}];
+  places:string[] =[];
+  
   options:any = {
     ComponentRestrictions :{
       country:[],
@@ -77,11 +82,26 @@ export class CreateTripComponent implements OnInit {
 
   handleAddressChange(address:any,dayIndex:any){
     this.addLocation[dayIndex] = address.formatted_address;
+    this.places[dayIndex] = (address.formatted_address);
+    let place: google.maps.places.PlaceResult = address;
+  
+    if(place.geometry === undefined || place.geometry === null) {
+      return;
+    }
+    this.latitude = place.geometry.location.lat()
+    this.longitude = place.geometry.location.lng()
   }
 
-  constructor(private router:Router,private route: ActivatedRoute,private apollo :Apollo) { }
+
+  retriveAddressComponents(arg0: string): any {
+    throw new Error('Method not implemented.');
+  }
+
+  constructor(private router:Router,private route: ActivatedRoute,private apollo :Apollo) {
+   }
 
   ngOnInit(): void {
+    this.LocationLatLng.pop();
   }
 
   tripName:string="";
@@ -122,8 +142,6 @@ export class CreateTripComponent implements OnInit {
       this.errForm1="All Fields Required"
     }
 
-    
-
   }
 
 
@@ -138,8 +156,6 @@ export class CreateTripComponent implements OnInit {
 
   allLocations:string[][]=[];
 
-
-
   addIntoLocations(dayIndex:any){
 
     var currentdaylocations = [...this.allLocations[dayIndex]]
@@ -149,11 +165,17 @@ export class CreateTripComponent implements OnInit {
     this.allLocations.splice(dayIndex,1,currentdaylocations);
 
     this.addLocation[dayIndex] = "";
+    
+    this.LocationLatLng.push({ lat:this.latitude, lng:this.longitude});
   }
 
   removeLocation(locationIndex:any,dayIndex:any){
 
     var currentdaylocations = [...this.allLocations[dayIndex]]
+    
+    if (this.places[dayIndex] == currentdaylocations.toLocaleString()){
+      this.LocationLatLng.splice(dayIndex);
+    }
 
     currentdaylocations.splice(locationIndex,1);
 
