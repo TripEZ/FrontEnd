@@ -157,16 +157,25 @@ export class CreateTripComponent implements OnInit {
   allLocations:string[][]=[];
 
   addIntoLocations(dayIndex:any){
-
+    
     var currentdaylocations = [...this.allLocations[dayIndex]]
 
     currentdaylocations.push(this.addLocation[dayIndex]);
 
-    this.allLocations.splice(dayIndex,1,currentdaylocations);
+    if (this.addLocation[dayIndex] == undefined || this.addLocation[dayIndex] == "")
+    {
+      alert("You cannot add an empty location")
+      return;
+    }
+    else
+    {
+      this.allLocations.splice(dayIndex,1,currentdaylocations);
 
-    this.addLocation[dayIndex] = "";
+      this.addLocation[dayIndex] = "";
     
-    this.LocationLatLng.push({ lat:this.latitude, lng:this.longitude});
+      this.LocationLatLng.push({ lat:this.latitude, lng:this.longitude});
+    }
+    
   }
 
   removeLocation(locationIndex:any,dayIndex:any){
@@ -174,11 +183,12 @@ export class CreateTripComponent implements OnInit {
     var currentdaylocations = [...this.allLocations[dayIndex]]
     
     if (this.places[dayIndex] == currentdaylocations.toLocaleString()){
-      this.LocationLatLng.splice(dayIndex);
+      this.LocationLatLng.splice(dayIndex,1);
     }
-
+    console.log(currentdaylocations);
+    console.log(this.LocationLatLng);
     currentdaylocations.splice(locationIndex,1);
-
+    
     this.allLocations.splice(dayIndex,1,currentdaylocations);
 
   }
