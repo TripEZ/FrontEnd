@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SocialAuthService, GoogleLoginProvider, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
 
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
@@ -23,8 +24,9 @@ const Register = gql`
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+  socialUser!: SocialUser;
 
-  constructor(private apollo :Apollo,private router:Router) { }
+  constructor(private apollo :Apollo,private router:Router, private socialAuthService: SocialAuthService) { }
 
   registerForm = new FormGroup({
     email : new FormControl('',[Validators.required,Validators.email]),
@@ -33,7 +35,11 @@ export class RegistrationComponent implements OnInit {
     password : new FormControl('',[Validators.required,Validators.minLength(8)]),
   });
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.socialAuthService.authState.subscribe((user) => {
+      this.socialUser = user;
+      console.log(this.socialUser);
+    })
   }
 
   register(){
@@ -55,4 +61,11 @@ export class RegistrationComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
+  registerWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+
+  registerWithFacebook(): void {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
 }
