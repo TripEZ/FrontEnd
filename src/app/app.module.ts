@@ -15,6 +15,7 @@ import { TripOverviewComponent } from './pages/trip-overview/trip-overview.compo
 import { EditTripsComponent } from './pages/edit-trips/edit-trips.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { ReviewComponent } from './pages/review/review.component';
 
 import {Interceptor} from '../app/Interceptor';
 import { CreateTripComponent } from './pages/create-trip/create-trip.component';
@@ -39,6 +40,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
     EditProfileComponent,
     CreateTripComponent,
     WeatherWidgetComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
     FormsModule,
     HttpClientModule,
     GooglePlaceModule,
-    SocialLoginModule,
+    SocialLoginModule,  
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDyeVGrTRpKscrLAEtA0MyD4bpjEPXxrSY'
     })
