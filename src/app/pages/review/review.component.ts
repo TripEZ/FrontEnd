@@ -30,6 +30,8 @@ export class ReviewComponent implements OnInit {
   reviewForm = new FormGroup({
     reviewName : new FormControl('',[Validators.required]),
     reviewEmail : new FormControl('',[Validators.required,Validators.email]),
+    reviewCountry : new FormControl('',[Validators.required]),
+    reviewText : new FormControl('',[Validators.required])
   });
 
   ngOnInit(): void {
@@ -41,6 +43,8 @@ export class ReviewComponent implements OnInit {
       variables:{
         reviewName:this.reviewForm.controls.reviewName.value,
         reviewEmail:this.reviewForm.controls.reviewEmail.value,
+        reviewCountry:this.reviewForm.controls.reviewCountry.value,
+        reviewText:this.reviewForm.controls.reviewText.value,
       }
     }).subscribe(res=>{
       this.router.navigateByUrl("/home")
