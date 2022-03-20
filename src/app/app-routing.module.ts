@@ -23,7 +23,7 @@ const routes: Routes = [
   {path:'profile', component:ProfileComponent, canActivate:[LoginRegisterGuard]},
   {path:'editprofile', component:EditProfileComponent, canActivate:[LoginRegisterGuard]},
   {path:'createTrip',component:CreateTripComponent, canActivate:[LoginRegisterGuard]},
-  {path:'review',component:ReviewComponent, canActivate:[AuthorizedGuard]},
+  {path:'review',component:ReviewComponent, canActivate:[LoginRegisterGuard]},
 
 ];
 
