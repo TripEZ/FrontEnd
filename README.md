@@ -1,6 +1,6 @@
 
 ## Live Website
-[TripEZ](https://tripez.herokuapp.com/)
+[TripEZ](https://trip-ez.herokuapp.com)
 
 ## Instruction For Running Application
 
