@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SocialAuthService, GoogleLoginProvider, FacebookLoginProvider, SocialUser } from 'angularx-social-login';
 
 import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
@@ -23,16 +24,22 @@ mutation login($email:String!,$password:String!){
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
 
-  constructor(private router : Router,private apollo:Apollo) { }
+export class LoginComponent implements OnInit {
+  socialUser!: SocialUser;
+
+  constructor(private router: Router, private apollo: Apollo, private socialAuthService: SocialAuthService) { }
 
   loginForm =  new FormGroup({
-    email: new FormControl('',[Validators.required,Validators.email]),
-    password : new FormControl('',[Validators.required,Validators.minLength(8)])
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password : new FormControl('', [Validators.required, Validators.minLength(8)])
   })
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.socialAuthService.authState.subscribe((user) => {
+      this.socialUser = user;
+      console.log(this.socialUser);
+    })
   }
 
   gotoRegister(){
@@ -56,13 +63,13 @@ export class LoginComponent implements OnInit {
     },(error)=>{
       
     });
-
-
-
-
-
   }
 
+  loginWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
 
-
+  facebookSignin(): void {
+    this.socialAuthService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  }
 }

@@ -15,7 +15,13 @@
         <div class="label">*Password : <input type="password" formControlName="password" class="form-inputs"> &nbsp;
             <p *ngIf="loginForm.get('password')!.invalid && loginForm.get('password')!.touched" class="red">Must be 8 characters long</p>
         </div>
-        <div><button class="btnSubmit" [disabled]="loginForm.invalid" (click)="login()" class="btnSubmit">Login</button></div>
+        <div>
+            <button class="btnSubmit" [disabled]="loginForm.invalid" (click)="login()" class="btnSubmit">Login</button>
+        </div>
+        <div>
+            <button type="button" (click)="loginWithGoogle()" class="btn btnGoogle">Login with Google</button>
+            <button type="button" (click)="facebookSignin()" class="btn btnFacebook">Login with Facebook</button>
+        </div>
         <a class="link" href="/">Not Registered?. Sign Up here  </a>
     </form>
 
