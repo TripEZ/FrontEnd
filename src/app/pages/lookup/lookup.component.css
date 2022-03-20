@@ -1,0 +1,206 @@
+.header {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+}
+
+h2 {
+    font-size: 25px;
+    font-weight: 600px;
+    padding-bottom: 10px;
+}
+
+
+
+
+.logo {
+    margin-block: 20px;
+    margin-inline: center;
+    height: 100px;
+    width: auto;
+}
+
+.lookup {
+    margin-top: 50px;
+}
+
+.start {
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.form-card {
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: var(--GreenMono);
+    border-radius: 10px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 40px;
+    padding-right: 40px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.label {
+    font-size: 17px;
+    margin-left: 20px;
+}
+
+.form-inputs {
+    border-radius: 3px;
+    border: 2px green solid;
+    float: right;
+    margin-left: auto;
+    margin-right: 20px;
+    color: #2E5E4D;
+    font-weight: 600;
+}
+
+.red {
+    color: red;
+}
+
+.btnSubmitLookup {
+    background-color: var(--button);
+    color: white;
+    width: 335px;
+    padding: 5px;
+    border: 2px solid white;
+    font-weight: 500;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.btnSubmitLookup:hover {
+    background-color: white;
+    color: #2E5E4D;
+    border: 2px solid #2E5E4D;
+}
+
+.link {
+    text-align: center;
+    font-size: 13px;
+    text-decoration: none;
+    color: #dad8d8;
+}
+
+.link:hover {
+    color: #969696;
+}
+
+.content {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.content-card {
+    width: 350px;
+    padding-block: 40px;
+    padding-inline: 20px;
+    border-radius: 40px;
+    background-color: var(--LogoColor);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #fffdf1;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.25s ease-in-out;
+}
+
+.content-card p {
+    font-size: 18px;
+    font-weight: 600px;
+}
+
+.content-card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+    background-color: #4ecca2;
+}
+
+.content-card h4 {
+    margin-bottom: 10px;
+}
+
+.card_icons {
+    margin-bottom: 15px;
+    width: 50px;
+    height: 50px;
+}
+
+@media (max-width: 700px) {
+    .logo {
+        margin-block: 20px;
+        margin-inline: center;
+        height: 50px;
+        width: auto;
+    }
+    h2 {
+        font-size: 20px;
+        padding-bottom: 10px;
+    }
+    .form-inputs {
+        border-radius: 3px;
+        border: 2px green solid;
+        float: right;
+        margin-left: auto;
+        margin-right: 5px;
+    }
+    .form-card {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .header {
+        width: 100%;
+        text-align: left;
+        padding-left: 20px;
+    }
+    .sign-in {
+        float: right;
+        margin-top: 20px;
+        margin-right: 20px;
+        border: var(--GreenMono) solid 2px;
+        font-weight: 700;
+        padding: 5px;
+        color: var(--GreenMono)
+    }
+    .content {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        align-content: center;
+    }
+    .content-card:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transform: scale(1.04);
+    }
+    .lookup {
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

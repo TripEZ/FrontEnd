@@ -1,0 +1,33 @@
+<app-main-nav></app-main-nav>
+
+<div class="lookup">
+
+
+    <form [formGroup]="lookupForm" class="form-card">
+      <h3 class="start">Lookup the TripID</h3>
+      <div class="label">*TripID : <input type="text" formControlName="lookup" class="form-inputs"></div>
+    
+      <div><button [disabled]="lookupForm.invalid" (click)="lookup()" class="btnSubmitLookup">Lookup Trip</button></div>
+    </form>
+    <div class="trip-list">
+      <h4>Looked up Trips:</h4><br>
+      <div *ngFor="let trip of allTrips;let index = index">
+          <div class="arrangement">
+              <div (click)="openTrips(trip._id)" class="trip-card">
+                  <div>
+                      
+                      <h4>{{trip.tripName}}</h4>
+                      <h5>{{trip.tripLocation}}</h5>
+                  </div>
+                  <div class="days">
+                      <p>Days : {{trip.days.length}}</p>
+                  </div>
+              </div>
+              <div class="deleteSection">
+                  
+              </div>
+          </div>
+  
+      </div>
+  </div>
+</div>
