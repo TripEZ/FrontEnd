@@ -47,7 +47,7 @@ export class ReviewComponent implements OnInit {
         reviewText:this.reviewForm.controls.reviewText.value,
       }
     }).subscribe(res=>{
-      this.router.navigateByUrl("/review")
+      this.router.navigateByUrl("/home")
     });
   }
 
