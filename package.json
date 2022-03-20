@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~12.1.0",
     "@angular/router": "~12.1.0",
     "@apollo/client": "^3.0.0",
+    "angularx-social-login": "^4.0.1",
     "apollo-angular": "^2.6.0",
     "express": "^4.17.1",
     "geocoder": "^0.2.3",
