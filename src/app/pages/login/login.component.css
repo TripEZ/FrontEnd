@@ -99,6 +99,61 @@ h2 {
     border: 2px solid #2E5E4D;
 }
 
+.separator {
+    overflow: hidden;
+    text-align: center;
+    color: rgba(218, 216, 216, 0.5);
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.separator:before, .separator:after {
+    background-color: rgba(218, 216, 216, 0.5);
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 50%;
+}
+
+.separator:before {
+    right: 0.5em;
+    margin-left: -50%;
+  }
+  
+.separator:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+
+.btnGoogle {
+    background-color: #DF4930;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px;
+    margin: 5px;
+    color: white;
+}
+
+.btnGoogle:hover {
+    background-color: #EFEFEF;
+    color: var(--bar);
+}
+
+.btnFacebook {
+    background-color: #1877F2;
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+}
+
+.btnFacebook:hover {
+    background-color: #3B5998;
+}
+
 .link {
     text-align: center;
     font-size: 13px;
