@@ -10,8 +10,10 @@ import {map} from "rxjs/operators";
 const Review = gql`
 mutation getUserById($Id:String!){
     getUserById(Id:$Id){
-      name
-      email
+      reviewName
+      reviewEmail
+      reviewCountry
+      reviewText
     }
   } 
 `;
@@ -26,22 +28,19 @@ export class ReviewComponent implements OnInit {
   constructor(private apollo :Apollo,private router:Router) { }
 
   reviewForm = new FormGroup({
-    email : new FormControl('',[Validators.required,Validators.email]),
-    name : new FormControl('',[Validators.required]),
+    reviewName : new FormControl('',[Validators.required]),
+    reviewEmail : new FormControl('',[Validators.required,Validators.email]),
   });
 
   ngOnInit(): void {
   }
 
   review(){
-    
     this.apollo.mutate({
       mutation :Review,
       variables:{
-        email:this.reviewForm.controls.email.value,
-        name:this.reviewForm.controls.name.value,
-        phone:this.reviewForm.controls.name.value,
-        password:this.reviewForm.controls.password.value,
+        reviewName:this.reviewForm.controls.reviewName.value,
+        reviewEmail:this.reviewForm.controls.reviewEmail.value,
       }
     }).subscribe(res=>{
       this.router.navigateByUrl("/home")

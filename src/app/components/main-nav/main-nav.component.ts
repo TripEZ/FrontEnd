@@ -56,6 +56,11 @@ export class MainNavComponent implements OnInit {
     this.toggleNav();
   }
 
+  review(){
+    this.router.navigateByUrl("/review");
+    this.toggleNav();
+  }
+
   navToggle :boolean = false;
 
   toggleNav(){

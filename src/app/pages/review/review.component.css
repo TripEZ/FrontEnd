@@ -10,6 +10,13 @@ h2 {
     padding-bottom: 10px;
 }
 
+
+textarea {
+    overflow-y: scroll;
+    height: 100px;
+    resize: none; /* Remove this if you want the user to resize the textarea */
+}
+
 .logo {
     margin-block: 20px;
     margin-inline: center;
