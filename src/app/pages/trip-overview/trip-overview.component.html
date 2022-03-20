@@ -4,6 +4,8 @@
   <div class="column">
     <h4>Name :<b> {{trip.tripName}}</b></h4>
     <h4>Location : <b> {{trip.tripLocation}}</b></h4>
+    <h4></h4>
+    <a href="mailto:{{this.uEmails}}">Email this trip ID to a friend!</a>
   </div>
   <div class="column">
     <button (click)="openEdit()" class="edit-trip">Edit Trip</button>

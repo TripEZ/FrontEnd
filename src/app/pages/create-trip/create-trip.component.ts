@@ -373,7 +373,7 @@ export class CreateTripComponent implements OnInit {
         toDo:this.allToDo[i]
       }
 
-     allDays.push(day);
+     allDays.push();
     }
 
     var trip  = {
