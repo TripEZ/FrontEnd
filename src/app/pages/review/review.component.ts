@@ -38,17 +38,7 @@ export class ReviewComponent implements OnInit {
   }
 
   review(){
-    this.apollo.mutate({
-      mutation :Review,
-      variables:{
-        reviewName:this.reviewForm.controls.reviewName.value,
-        reviewEmail:this.reviewForm.controls.reviewEmail.value,
-        reviewCountry:this.reviewForm.controls.reviewCountry.value,
-        reviewText:this.reviewForm.controls.reviewText.value,
-      }
-    }).subscribe(res=>{
       this.router.navigateByUrl("/home")
-    });
   }
 
 }
