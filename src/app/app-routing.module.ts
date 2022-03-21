@@ -8,6 +8,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { RegistrationComponent } from './pages/registration/registration.component';
 import { TripOverviewComponent } from './pages/trip-overview/trip-overview.component';
 import { ReviewComponent } from './pages/review/review.component';
+import {LookupComponent} from './pages/lookup/lookup.component';
 import {CreateTripComponent} from './pages/create-trip/create-trip.component';
 import { LoginRegisterGuard } from './guards/login-register.guard';
 import { AuthorizedGuard } from './guards/authorized.guard';
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:'editprofile', component:EditProfileComponent, canActivate:[LoginRegisterGuard]},
   {path:'createTrip',component:CreateTripComponent, canActivate:[LoginRegisterGuard]},
   {path:'review',component:ReviewComponent, canActivate:[LoginRegisterGuard]},
+  {path:'lookup',component:LookupComponent, canActivate:[LoginRegisterGuard]},
 
 ];
 

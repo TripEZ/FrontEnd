@@ -12,6 +12,7 @@
       </button>
     </div>
     <div class="links-section">
+      <button (click)="lookup()" class="button btn-create">Trip ID Lookup</button>
       <button (click)="create()" class="button btn-create">Create A Trip</button>
       <button (click)="review()" class="button btn-review"> Write A Review</button>
       <button class="nav-link"  class="button" (click)="logout()">Logout</button>
@@ -21,8 +22,10 @@
     <div *ngIf="navToggle==true" class="links-section-mobile">
 
       <div>
-      <button (click)="create()" class="button btn-create">Create A Trip
-      </button>
+        <button (click)="lookup()" class="button btn-create">Trip ID Lookup</button>
+      </div>
+      <div>
+      <button (click)="create()" class="button btn-create">Create A Trip</button>
     </div>
     <div>
       <button (click)="review()" class="button btn-review">Write A Review</button>

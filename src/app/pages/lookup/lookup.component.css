@@ -10,21 +10,106 @@ h2 {
     padding-bottom: 10px;
 }
 
-.sign-in {
-    float: right;
-    margin-top: 50px;
-    margin-right: 50px;
-    border: var(--GreenMono) solid 2px;
-    font-weight: 700;
-    padding: 5px;
-    color: var(--GreenMono)
-}
 
-.sign-in:hover {
-    background-color: var(--button);
-    color: white;
-    border: 2px solid var(--GreenMono);
-}
+
+.create-section {
+    margin-top:100px;
+    margin-left:100px;
+  }
+  
+  .btn-create{
+    border : 2px solid var(--GreenMono);
+    font-size: 1.3rem;;
+    font-weight: 600;
+    text-align: center;
+    padding-left:20px;
+    border-radius: 10px;
+    height:50px;
+    color: var(--bar)
+  }
+  
+  .btn-create:hover{
+    background-color: var(--GreenMono) ;
+    color:white;
+    transition: all 0.3s ease;
+    padding-left:25px;
+    text-align: end;
+  }
+  
+  .appear{
+    opacity:0;
+    visibility: hidden;
+  }
+  
+  .btn-create:hover > .appear { opacity:1 ; visibility:unset; }
+  
+  
+  .trip-list{
+    margin-top:40px;
+    width:80%;
+    margin-inline:auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .arrangement{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+  
+  }
+  
+  .trip-card{
+    background-color:#110e0e;
+    color:white;
+    padding:10px;
+    width: 90%;
+    height:90px;
+    margin-top:10px;
+    border-radius: 10px 0px 0px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  
+  .days{
+    margin-right:10px;
+    margin-top:auto;
+    margin-bottom:auto;
+  }
+  
+  .deleteBtn{
+    margin-top:auto;
+    margin-bottom:auto;
+  }
+  
+  
+  .btnDelete{
+    margin-top: 10px;
+    height: 90px;
+    width:50px;
+    padding-inline: 5px;
+    border-radius: 0px 10px 10px 0px;
+    background-color: var(--delete);
+    border:none;
+    transition: 0.1s ease-in-out;
+  }
+  
+  .btnDelete:hover{
+    width:70px;
+  }
+  
+  
+  @media only screen and (max-width: 768px) {
+    .create-section {
+      margin-top:50px;
+      margin-left:40px;
+    }
+  }
+  
+  
+  
 
 .logo {
     margin-block: 20px;
@@ -33,7 +118,7 @@ h2 {
     width: auto;
 }
 
-.register {
+.lookup {
     margin-top: 50px;
 }
 
@@ -79,7 +164,7 @@ h2 {
     color: red;
 }
 
-.btnSubmit {
+.btnSubmitLookup {
     background-color: var(--button);
     color: white;
     width: 335px;
@@ -94,69 +179,10 @@ h2 {
     cursor: pointer;
 }
 
-.btnSubmit:hover {
+.btnSubmitLookup:hover {
     background-color: white;
     color: #2E5E4D;
     border: 2px solid #2E5E4D;
-}
-
-.separator {
-    overflow: hidden;
-    text-align: center;
-    color: rgba(218, 216, 216, 0.5);
-    margin-top: 10px;
-    margin-bottom: 0px;
-}
-
-.separator:before, .separator:after {
-    background-color: rgba(218, 216, 216, 0.5);
-    content: "";
-    display: inline-block;
-    height: 1px;
-    position: relative;
-    vertical-align: middle;
-    width: 50%;
-}
-
-.separator:before {
-    right: 0.5em;
-    margin-left: -50%;
-  }
-  
-.separator:after {
-    left: 0.5em;
-    margin-right: -50%;
-}
-
-.btnGoogle {
-    background-color: #DF4930;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 10px;
-    margin-left: 75px;
-    margin-bottom: 10px;
-    color: white;
-    width: 210px;
-}
-
-.btnGoogle:hover {
-    background-color: #EFEFEF;
-    color: var(--bar);
-}
-
-.btnFacebook {
-    background-color: #1877F2;
-    font-size: 14px;
-    font-weight: 500;
-    color: white;
-    padding: 10px;
-    margin: 5px;
-    width: 210px;
-    margin-left: 75px;
-}
-
-.btnFacebook:hover {
-    background-color: #3B5998;
 }
 
 .link {
@@ -270,7 +296,7 @@ h2 {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transform: scale(1.04);
     }
-    .register {
+    .lookup {
         margin-top: 50px;
         margin-left: 10px;
         margin-right: 10px;

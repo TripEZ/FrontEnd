@@ -60,6 +60,10 @@ export class MainNavComponent implements OnInit {
     this.router.navigateByUrl("/review");
     this.toggleNav();
   }
+  lookup(){
+    this.router.navigateByUrl("/lookup");
+    this.toggleNav();
+  }
 
   navToggle :boolean = false;
 

@@ -25,6 +25,7 @@ import { WeatherWidgetComponent } from './components/weather-widget/weather-widg
 import { AgmCoreModule } from '@agm/core';
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import { LookupComponent } from './pages/lookup/lookup.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
     CreateTripComponent,
     WeatherWidgetComponent,
     ReviewComponent,
+    LookupComponent
   ],
   imports: [
     BrowserModule,
