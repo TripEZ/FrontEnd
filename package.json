@@ -29,6 +29,7 @@
     "geocoder": "^0.2.3",
     "graphql": "^15.0.0",
     "moment": "^2.29.1",
+    "ng": "^0.0.0",
     "ngx-google-places-autocomplete": "^2.0.5",
     "node-geocoder": "^4.0.0",
     "path": "^0.12.7",
