@@ -1,5 +1,5 @@
 <div class="header">
-    <button class="register" (click)="gotoRegister()">Register</button>
+    
     <img src="../../../assets/header.png" class="logo" alt="">
 
 
@@ -16,7 +16,9 @@
             <p *ngIf="loginForm.get('password')!.invalid && loginForm.get('password')!.touched" class="red">Must be 8 characters long</p>
         </div>
         <div>
+            <!-- Group both register and login buttons together for simplicity -->
             <button class="btnSubmit" [disabled]="loginForm.invalid" (click)="login()" class="btnSubmit">Login</button>
+            <button class="register" (click)="gotoRegister()" class="btnSubmit">Register</button> 
         </div>
         <div><p class="separator"><span>or</span></p></div>
         <div>
