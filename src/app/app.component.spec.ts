@@ -1,3 +1,4 @@
+// UNIT TESTING FILE FOR ANGULAR COMPONENTS FRONT-END
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
@@ -32,4 +33,5 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.content span')?.textContent).toContain('frontend app is running!');
   });
+ 
 });
