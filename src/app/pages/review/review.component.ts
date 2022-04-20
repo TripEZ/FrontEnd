@@ -158,7 +158,7 @@ export class ReviewComponent implements OnInit {
     }).subscribe(res=>{
       
       if(res.data.submitReview._id){
-        location.href = '/review';
+        location.href = '/home';
       }
 
     })
