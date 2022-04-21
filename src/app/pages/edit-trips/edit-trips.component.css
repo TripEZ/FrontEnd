@@ -1,21 +1,41 @@
 .block-style{
-  border:2px solid rgb(82, 76, 76);
-  background-color: var(--content-green);
+  background-color: var(--GreenMono);
+  color: white;
+  padding: 30px 50px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+button {
+  margin: 20px 10px 0px auto;
+    color: white;
+    background-color: var(--button);
+    border: 2px solid white;
 }
 
+button:hover {
+  background-color: white;
+  color: #2E5E4D;
+  border: 2px solid #2E5E4D;
+}
 
 .header{
   margin-top: 40px;
   margin-inline: auto;
-  width:80%;
-  padding:20px;
-  border-radius: 10px;
+  width:80%;  
 }
 
 .delete{
-  background-color: rgb(248, 80, 80);
-  border:solid 1px black;
-  border-radius: 5px;
+  float: right;
+  margin-top: -5%;
+  background-color: white;
+  color: var(--delete);
+  border: 2px solid white;
+}
+
+.delete:hover {
+  background-color: var(--delete);
+  color: white;
+  border: 2px solid red;
 }
 
 h3{
@@ -26,10 +46,7 @@ h3{
   margin-top: 20px;
   margin-inline: auto;
   width:80%;
-  padding-block:10px;
-  padding-inline:30px;
   border-radius: 10px;
-
 }
 
 .in-row{
@@ -81,6 +98,15 @@ h3{
 
 }
 
+.rmv-loc {
+  margin-left: 10px;
+}
+
+.rmv-loc:hover {
+  color: red;
+  cursor: pointer;
+}
+
 .pairBtns{
   display:flex;
   flex-direction: row;
@@ -124,26 +150,18 @@ h3{
 }
 
 .ind-at{
-  background-color:white ;
   padding: 20px 30px;
   margin-top: 5px;
   margin-bottom: 5px;
   border-radius: 5px;
-  padding-right:40px;
-  max-width: 30%;
-  border:2px solid rgb(82, 76, 76);
 }
 
 .added-at{
-
-  background-color:white ;
   padding: 20px 30px;
   margin-top: 5px;
   margin-bottom: 5px;
   border-radius: 5px;
   padding-right:40px;
-  max-width: 40%;
-
 }
 
 
@@ -152,12 +170,10 @@ h3{
   margin-top: 20px;
   margin-inline: auto;
   width:80%;
-  padding:20px;
   border-radius: 10px;
   margin-bottom: 40px;
   display: flex;
   flex-direction: column;
-
 }
 
 .edit-trip{
@@ -178,35 +194,25 @@ h3{
   border-radius: 5px;
   padding:20px 20px;
   margin-bottom: 20px;
-  background-color: #292626;
   color:white;
 }
 
 
 .deleteDay{
-  background-color:  rgb(248, 80, 80);
+  background-color:  #47BC96;
   border:none;
-  font-weight: 600;
-  border-radius: 5px;
-  padding: 5px 5px;
+  color: white;
 }
+
+.deleteDay:hover {
+  color: red;
+  background-color: #47BC96;
+  border: none;
+}
+
 .to-dos{
-  margin-top:20px;
-  background-color: white ;
-  padding:10px 20px;
-  border-radius: 5px;
-  color:black;
-  font-weight: 600px;
+  margin-top:50px;
 }
-
-.add-toDo{
-  border:none;
-  background-color: black;
-  color:white;
-  border-radius: 5px;
-  padding:5px;
-}
-
 
 .todo-listitem{
   background: grey;
@@ -215,6 +221,52 @@ h3{
   padding-top:2px;
   padding-bottom:2px;
   border-radius:5px;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: var(--LogoColor);
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  display: grid;
+  place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--button);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+  background-color: CanvasText;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+.rmv-task {
+  width: 25px;
+  height: 25px;
+}
+
+.btn-rmv-task {
+  float: right;
+  margin-top: auto;
+  margin-bottom: auto;
+  color: white;
+  background-color: #47BC96;
+  margin-left: 15px;
+  border: none;
 }
 
 .taskInput{
@@ -246,17 +298,20 @@ h3{
 }
 
 .tag-box{
-  margin:5px;
-  background-color: grey;
-  padding-inline:5px;
-  padding-top:3px;
-  padding-bottom: 3px;
-  border-radius: 3px;
+  margin: 5px;
+    background-color: #d1f4ff;
+    padding-inline: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: row;
+    color: rgb(36, 36, 36);
 }
 
 
 .toDo-add-inputs{
-  background-color:#d5dbd6 ;
+
   padding:10px;
   margin:5px;
   border-radius: 5px;
@@ -286,11 +341,10 @@ h3{
 
 .addDayForm{
   margin-top: 20px;
-  background-color: #292626;
   color:white;
   border-radius: 20px;
   padding:20px;
-
+  background-color:var(--LogoColor) ;
 }
 
 .white{
@@ -343,12 +397,13 @@ h3{
 }
 
 .save{
-  padding:5px 10px;
-  font-weight: 700;
-  border-radius: 5px;
-  background-color: black;
-  color: white;
-  border:none;
+  font-size: 20px;
+    font-weight: 500;
+    padding: 5px;
+    width: 100%;
+    display: block;
+    margin: 20px auto;
+    margin-bottom: 50px;
 }
 
 
