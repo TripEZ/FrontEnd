@@ -22,9 +22,10 @@
   <div class="in-row">
     <div *ngFor="let atend of atendees;let index = index;" class="ind-at">
       <button class="delete right" (click)="removeExistingAtt(index)">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
-        <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-      </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x rmv-attendee" viewBox="0 0 16 16">
+          <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+          <path fill-rule="evenodd" d="M12.146 5.146a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
+        </svg>
     </button>
 
         Name :
@@ -49,8 +50,9 @@
     <div *ngFor="let i of addedatendees;let index = index;" class="added-at">
 
       <button class="delete right" (click)="removeAddedAtt(index)">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
-          <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x rmv-attendee" viewBox="0 0 16 16">
+          <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+          <path fill-rule="evenodd" d="M12.146 5.146a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
         </svg>
       </button>
       <h6>Just Added</h6>
@@ -61,9 +63,7 @@
 
     <hr>
 
-    <button class="saveBtn" (click)="toggleAddAtendees()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-    </svg></button>
+    <button (click)="toggleAddAtendees()">Add attendee</button>
 
     <div *ngIf="addAtendeesToggle==true" class="added-at addattForm">
         Name :
@@ -80,15 +80,10 @@
           </div>
 
       <div class="btn-group">
-        <button class="disBtn" (click)="discardAtt()" >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash2-fill" viewBox="0 0 16 16">
-            <path d="M2.037 3.225A.703.703 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2a.702.702 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671L2.037 3.225zm9.89-.69C10.966 2.214 9.578 2 8 2c-1.58 0-2.968.215-3.926.534-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466-.18-.14-.498-.307-.975-.466z"/>
-          </svg>
+        <button (click)="discardAtt()" >Discard
         </button>
-        <button class="saveBtn" (click)="addAttendees()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-          </svg>
+        <button (click)="addAttendees()">
+          Add
         </button>
       </div>
     </div>
@@ -100,17 +95,22 @@
   <h3>Itinerary </h3>
   <hr>
   <div *ngFor="let day of days; let dayindex = index; " class="day">
-    <button class="warning-btn deleteDay"  (click)="togglWarning(dayindex)">Delete</button>
+    <button class="warning-btn deleteDay"  (click)="togglWarning(dayindex)">
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash rmv-task" viewBox="0 0 16 16">
+        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+      </svg>
+    </button>
     <h4> Day {{days.indexOf(day)+1}} </h4>
     <div *ngIf="warningToggle[dayindex]==true" class="warning-card">
       <h5>You are about to delete a Day. You cannot restore this later.</h5>
-      <h6> Press delete to delete and cancel to go back. </h6>
+      <h6> Press delete to delete or cancel to go back. </h6>
       <div class="pairBtns">
         <div>
-        <button class="closeAction" (click)="closeWarning(dayindex)"> cancel</button>
+        <button (click)="closeWarning(dayindex)"> Cancel</button>
        </div>
        <div>
-        <button class="doAction" (click)="deleteDay(dayindex)"> delete</button>
+        <button (click)="deleteDay(dayindex)"> Delete</button>
         </div>
       </div>
     </div>
@@ -121,7 +121,7 @@
     <br>
 
     <div class="form-group">
-      Notes : <textarea rows="3" class="form-control" style="padding:10px 10px; border:none; background-color: #ffff78;" name="dayNotes{{dayindex}}"  [(ngModel)]="dayNotes[dayindex]"></textarea>
+      Notes : <textarea rows="3" class="form-control" style="padding:10px 10px; border:none;" name="dayNotes{{dayindex}}"  [(ngModel)]="dayNotes[dayindex]"></textarea>
     </div>
     <br>
 
@@ -134,7 +134,7 @@
               #placesRef="ngx-places"
               (onAddressChange)="handleAddressChange($event,dayindex)"
           class="form-control w-70" type="text" [(ngModel)]="dayLocation[dayindex]" >
-          <button (click)="addLocation(dayindex) " class="addLoc">Add</button>
+          <button (click)="addLocation(dayindex) ">Add</button>
         </div>
         <br>
         Added Locations :
@@ -143,7 +143,7 @@
             <div class="tag-box">{{i}}
 
 
-              <svg  (click)="removeLocation(i,locationindex,dayindex)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+              <svg  (click)="removeLocation(i,locationindex,dayindex)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle rmv-loc" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
               </svg>
@@ -156,32 +156,40 @@
 
 
  <div class="to-dos">
-  <h5>ToDo : </h5>
+  <h5>To Dos : </h5>
 
   <div class="toDoCard" *ngFor="let i of allDaytoDo[dayindex];let todoindex = index">
-
-
-      <input type="text" class="taskInput" (change)="toDoTaskEdited(todoindex,dayindex)" name="day{{dayindex}}toDoTask{{todoindex}}" [(ngModel)]="dayTodoTask[dayindex][todoindex]">
-      <input type="checkbox" class="statusInput" (change)="toDoTaskEdited(todoindex,dayindex)" name="day{{dayindex}}toDoStatus{{todoindex}}" [(ngModel)]="dayTodoStatus[dayindex][todoindex]">
-      <button (click)="removeExistingtoDo(dayindex,todoindex)"> remove</button>
+    <div class="in-row">Task:</div>
+<div class="in-row">
+      <input class="form-control" type="text" class="taskInput" (change)="toDoTaskEdited(todoindex,dayindex)" name="day{{dayindex}}toDoTask{{todoindex}}" [(ngModel)]="dayTodoTask[dayindex][todoindex]">
+      <input class="form-control" type="checkbox" class="statusInput" (change)="toDoTaskEdited(todoindex,dayindex)" name="day{{dayindex}}toDoStatus{{todoindex}}" [(ngModel)]="dayTodoStatus[dayindex][todoindex]">
+      <button class="deleteDay" (click)="removeExistingtoDo(dayindex,todoindex)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash rmv-task" viewBox="0 0 16 16">
+          <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+          <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+        </svg>
+      </button>
+    </div>
   </div>
 
 
 
 
-  <button (click)="toggleToDo(dayindex)" class="add-toDo"> Add</button><br>
+  <button (click)="toggleToDo(dayindex)"> Add</button><br>
 
   <div *ngIf="toDoToggle[dayindex]==true" class="toDo-add-inputs">
-
+    <div class="in-row">Task:</div>
+    <div class="in-row">
     <input type="text" class="taskInput"  name="addtoDoTask{{dayindex}}" [(ngModel)]="addtoDoTask[dayindex]">
     <input type="checkbox" class="statusInput"  name="addtoDoStatus{{dayindex}}" [(ngModel)]="addtoDoStatus[dayindex]">
+  </div>
     <br>
     <div class="pairBtns cus-btns">
       <div>
-        <button class="closeAction" (click)="discardtoDo(dayindex)" >Discard</button>
+        <button (click)="discardtoDo(dayindex)" >Discard</button>
       </div>
       <div>
-        <button class="doAction" (click)="addtoDo(dayindex)">Add</button>
+        <button (click)="addtoDo(dayindex)">Add</button>
       </div>
     </div>
   </div>
@@ -191,7 +199,7 @@
    </div>
 
 
-   <button class="addDay" (click)="toggleAddDay()">Add Day</button>
+   <button (click)="toggleAddDay()">Add Day</button>
 
     <div  *ngIf="addDayToggle==true" class="addDayForm">
 
@@ -202,13 +210,13 @@
 
         Notes :
           <div class="form-group">
-            <textarea type="text"  class="form-control" name="addNotes" style="padding:10px 10px; border:none; background-color: #ffff78;"   [(ngModel)]="addNotes" ></textarea>
+            <textarea type="text"  class="form-control" name="addNotes" style="padding:10px 10px; border:none;"   [(ngModel)]="addNotes" ></textarea>
           </div>
 
         Locations :
           <div class="form-group">
             <input type="text"  name="addNewDateLocation"  [(ngModel)]="addNewDateLocation" >
-            <button class="addLoc" style="margin-left: 10px;" (click)="addLocationInAddDay()">Add</button>
+            <button style="margin-left: 10px;" (click)="addLocationInAddDay()">Add</button>
           </div>
 
 
@@ -216,7 +224,7 @@
           <div  class="location-tags" *ngFor="let loc of locationArrayInNewDate;let index = index" >
             <div class="tag-box">
               {{loc}}
-              <svg  (click)="removeLocationInNewDay(index)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle" viewBox="0 0 16 16">
+              <svg  (click)="removeLocationInNewDay(index)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-x-circle rmv-loc" viewBox="0 0 16 16">
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                 <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
               </svg>
@@ -226,7 +234,8 @@
 
         <br>
          ToDo :
-          <div>
+          <div class="in-row">
+            Task:
             <input type="text" class="taskInput"  name="addTaskInNewDay" [(ngModel)]="addTaskInNewDay">
             <input type="checkbox" class="statusInput"  name="addStatusInNewDay" [(ngModel)]="addStatusInNewDay">
             <br>
@@ -239,7 +248,12 @@
           <div class="toDoCard" *ngFor="let i of toDoAddedInNewDay;let todoindex = index">
             <input type="text" class="taskInput" (change)="toDoTaskEditedInNewDay(todoindex)" name="toDoTaskAddedInNewDay{{todoindex}}" [(ngModel)]="toDoTaskAddedInNewDay[todoindex]">
             <input type="checkbox" class="statusInput" (change)="toDoTaskEditedInNewDay(todoindex)" name="todoStatusAddedInNewDay{{todoindex}}" [(ngModel)]="todoStatusAddedInNewDay[todoindex]">
-            <button (click)="removetoDoInNewDay(todoindex)"> remove</button>
+            <button class="deleteDay" (click)="removetoDoInNewDay(todoindex)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash rmv-task" viewBox="0 0 16 16">
+                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+              </svg>
+            </button>
           </div>
 
 
@@ -248,10 +262,10 @@
 
       <div class="pairBtns cus-btns">
         <div>
-          <button class="closeAction white" (click)="discardDay()" >Discard the Day</button>
+          <button (click)="discardDay()" >Discard the Day</button>
         </div>
         <div>
-          <button class="doAction white" (click)="addDay()">Add the Day</button>
+          <button (click)="addDay()">Add the Day</button>
         </div>
       </div>
     </div>
