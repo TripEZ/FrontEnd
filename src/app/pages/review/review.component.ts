@@ -35,6 +35,17 @@ interface review{
   reviewText:string;
 }
 
+const Review = gql`
+mutation submitReview($reviewName:String!,$reviewEmail:String!,$reviewCountry:String!,$reviewText:String!){
+    submitReview(inputReview:{reviewName:$reviewName,reviewEmail:$reviewEmail,reviewCountry:$reviewCountry,reviewText:$reviewText}){
+      reviewName
+      reviewEmail
+      reviewCountry
+      reviewText
+    }
+  } 
+`;
+
 const submitReview=gql`
 mutation submitReview($inputReview:inputReviewData!)
 {
@@ -67,16 +78,6 @@ query getReviews($reviewId:String!)
 }
 `;
 
-const Review = gql`
-mutation getUserById($Id:String!){
-    getUserById(Id:$Id){
-      reviewName
-      reviewEmail
-      reviewCountry
-      reviewText
-    }
-  } 
-`;
 
 @Component({
   selector: 'app-review',
@@ -142,26 +143,19 @@ export class ReviewComponent implements OnInit {
   }
 
   submitReview(){
-    var review  = {
-      userId : localStorage.getItem("accesstokenid"),
-      reviewName : this.reviewName,
-      reviewEmail : this.reviewEmail,
-      reviewCountry : this.reviewCountry,
-      reviewText : this.reviewText,
-    }
 
-    this.apollo.mutate<any>({
-      mutation:submitReview,
+    this.apollo.mutate({
+      mutation:Review,
       variables:{
-        inputReview:review,
+        reviewName:this.reviewForm.controls.reviewName.value,
+        reviewEmail:this.reviewForm.controls.reviewEmail.value,
+        reviewCountry:this.reviewForm.controls.reviewCountry.value,
+        reviewText:this.reviewForm.controls.reviewText.value,
+        
       }
     }).subscribe(res=>{
-      
-      if(res.data.submitReview._id){
-        location.href = '/home';
-      }
-
-    })
+      this.router.navigateByUrl("/home")
+      });
   }
 
 }
