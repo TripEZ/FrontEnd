@@ -1,0 +1,16 @@
+<app-main-nav></app-main-nav>
+
+<div class="review">
+
+
+    <form [formGroup]="reviewForm" class="form-card">
+      <h3 class="start">Review The Places</h3>
+      <div class="label">*Name : <input type="text" formControlName="name" class="form-inputs">
+      &nbsp;<p *ngIf="reviewForm.get('name')!.touched && reviewForm.get('name')!.invalid " class="red">Not a name</p></div>
+      <div class="label">*Email : <input type="email" formControlName="email" class="form-inputs">
+      &nbsp;<p *ngIf="reviewForm.get('email')!.invalid && reviewForm.get('email')!.touched" class="red">Not a Valid Email</p></div>
+      <div><textarea cols="15" rows="5" placeholder="Enter your review here"></textarea></div>
+      <div><button [disabled]="reviewForm.invalid" (click)="review()" class="btnSubmitReview">Submit</button></div>
+    </form>
+
+</div>
