@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
 
 interface reviewResponse{
   getReview : {
-    reviews : reviews[]
+    review : review[]
   };
 }
 
@@ -20,15 +20,8 @@ interface inputReview{
   reviewText:string;
 }
 
-interface reviews{
-  _id:string;
-  reviewName:string;
-  reviewEmail:string;
-  reviewCountry:string;
-  reviewText:string;
-}
-
 interface review{
+  _id:string;
   reviewName:string;
   reviewEmail:string;
   reviewCountry:string;
@@ -37,7 +30,7 @@ interface review{
 
 const Review = gql`
 mutation submitReview($reviewName:String!,$reviewEmail:String!,$reviewCountry:String!,$reviewText:String!){
-    submitReview(inputReview:{reviewName:$reviewName,reviewEmail:$reviewEmail,reviewCountry:$reviewCountry,reviewText:$reviewText}){
+  submitReview(inputReview:{reviewName:$reviewName,reviewEmail:$reviewEmail,reviewCountry:$reviewCountry,reviewText:$reviewText}){
       reviewName
       reviewEmail
       reviewCountry
@@ -78,7 +71,6 @@ query getReviews($reviewId:String!)
 }
 `;
 
-
 @Component({
   selector: 'app-review',
   templateUrl: './review.component.html',
@@ -102,16 +94,11 @@ export class ReviewComponent implements OnInit {
     reviewText : new FormControl('',[Validators.required])
   });
 
-  allReviews : reviews[]=[];
+  allReviews : review[]=[];
   private querySubscription!: Subscription;
   ngOnInit(): void {
     this.getReviewsOnLoad();
   }
-
-  reviewName:string="";
-  reviewEmail:string="";
-  reviewCountry:string="";
-  reviewText:string="";
 
   getReviewsOnLoad(){
     this.querySubscription = this.apollo.watchQuery<reviewResponse>({
@@ -120,7 +107,7 @@ export class ReviewComponent implements OnInit {
         reviewid : localStorage.getItem("accesstokenid")
       }
     }).valueChanges.subscribe((data)=>{
-      this.allReviews = data.data.getReview.reviews
+      this.allReviews = data.data.getReview.review
       
     })
   }
@@ -151,11 +138,10 @@ export class ReviewComponent implements OnInit {
         reviewEmail:this.reviewForm.controls.reviewEmail.value,
         reviewCountry:this.reviewForm.controls.reviewCountry.value,
         reviewText:this.reviewForm.controls.reviewText.value,
-        
       }
     }).subscribe(res=>{
       this.router.navigateByUrl("/home")
-      });
+    })
   }
 
 }
