@@ -55,7 +55,7 @@ export class RegistrationComponent implements OnInit {
       variables:{
         email:this.registerForm.controls.email.value,
         name:this.registerForm.controls.name.value,
-        phone:this.registerForm.controls.name.value,
+        phone:this.registerForm.controls.phone.value,
         password:this.registerForm.controls.password.value,
       }
     }).subscribe(res=>{
