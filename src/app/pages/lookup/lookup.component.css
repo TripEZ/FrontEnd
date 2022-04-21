@@ -60,13 +60,13 @@ h2 {
   }
   
   .trip-card{
-    background-color:#110e0e;
+    background-color:#474747;
     color:white;
     padding:10px;
-    width: 90%;
-    height:90px;
+    width: 20%;
+    height:200px;
     margin-top:10px;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 10px 10px 10px 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
