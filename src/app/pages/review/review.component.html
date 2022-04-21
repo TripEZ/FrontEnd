@@ -5,17 +5,19 @@
 
     <form [formGroup]="reviewForm" class="form-card">
       <h3 class="start">Review The Places</h3>
-      <div class="label">*Name : <input type="text" formControlName="reviewName" [(ngModel)]="reviewName" class="form-inputs">
+      <div class="label">*Name : <input type="text" formControlName="reviewName" class="form-inputs">
       &nbsp;<p *ngIf="reviewForm.get('reviewName')!.touched && reviewForm.get('reviewName')!.invalid " class="red">Invalid Name</p></div>
       
-      <div class="label">*Email : <input type="email" formControlName="reviewEmail" [(ngModel)]="reviewEmail" class="form-inputs">
+      <div class="label">*Email : <input type="email" formControlName="reviewEmail" class="form-inputs">
       &nbsp;<p *ngIf="reviewForm.get('reviewEmail')!.invalid && reviewForm.get('reviewEmail')!.touched" class="red">Not a Valid Email</p></div>
       
-      <div class="label">*Country : <input type="text" formControlName="reviewCountry" [(ngModel)]="reviewCountry" class="form-inputs">
-        &nbsp;<p *ngIf="reviewForm.get('reviewCountry')!.touched && reviewForm.get('reviewCountry')!.invalid " class="red">Invalid Country</p></div>
+      <div class="label">*Country : <input type="text" formControlName="reviewCountry" class="form-inputs">
+      &nbsp;<p *ngIf="reviewForm.get('reviewCountry')!.touched && reviewForm.get('reviewCountry')!.invalid " class="red">Invalid Country</p></div>
       
-        <div><p>*Review : </p><textarea controlformName="reviewText" [(ngModel)]="reviewText" cols="45" placeholder="Enter your review here"></textarea></div>
-      <div><button (click)="submitReview()" class="btnSubmit">Submit</button></div>
+      <div class="label">*Review : <input type="text" formControlName="reviewText" class="form-inputs">
+      &nbsp;<p *ngIf="reviewForm.get('reviewText')!.touched && reviewForm.get('reviewText')!.invalid " class="red">Invalid Review</p></div>
+        
+      <div><button (click)="submitReview()" class="btnSubmitReview">Submit</button></div>
     </form>
 
     <div class="review-list">
